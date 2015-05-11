@@ -17,7 +17,7 @@ public class MyDirector implements AirshipDirector {
 		ship.setOrbitalModule(builder.builderOrbitalModule());
 		ship.setEscapeTower(builder.builderEscapeTower());
 
-		return null;
+		return ship;
 	}
 
 }
