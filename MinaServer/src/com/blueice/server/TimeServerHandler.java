@@ -6,6 +6,11 @@ import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 
+import com.blueice.bean.Signal;
+import com.blueice.dao.SignalDao;
+import com.blueice.factory.BasicFactory;
+import com.blueice.utils.AnalyzeData;
+
 public class TimeServerHandler extends IoHandlerAdapter {
 
 	/**
@@ -27,15 +32,28 @@ public class TimeServerHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object message)
 			throws Exception {
 		
+		SignalDao dao = BasicFactory.getInstance(SignalDao.class);
+		
 		String str = message.toString();
 		if (str.trim().equalsIgnoreCase("quit")) {
 			session.close();
 			return;
 		}
 
-		Date date = new Date();
-		session.write(date.toString());//向客户端写入数据。
-		System.out.println("Message written...");
+		System.out.println("Message Reciver...");
+		
+		Signal signal = AnalyzeData.jsonToBean(str);
+		
+		if(signal!=null){
+			dao.addSignal(signal);
+			System.out.println("Save...");
+		}else{
+			System.out.println("Erro...");
+		}
+		
+//		Date date = new Date();
+//		session.write(date.toString());//向客户端写入数据。
+		
 	}
 
 	/**
