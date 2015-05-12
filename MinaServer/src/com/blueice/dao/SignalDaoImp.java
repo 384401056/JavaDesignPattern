@@ -12,7 +12,7 @@ public class SignalDaoImp implements SignalDao {
 
 	@Override
 	public void addSignal(Signal signal) throws SQLException {
-		String sql = "INSERT INTO orderitem VALUES(?,?)";
+		String sql = "INSERT INTO tb_signal VALUES(?,?)";
 		try {
 			
 			QueryRunner runner = new QueryRunner(DaoUtils.getDataSource());

@@ -1,18 +1,29 @@
 package com.blueice.server;
 
+import java.sql.SQLException;
 import java.util.Date;
 
+import net.sf.json.JSON;
+
+import org.apache.commons.dbutils.QueryRunner;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 
 import com.blueice.bean.Signal;
 import com.blueice.dao.SignalDao;
+import com.blueice.dao.SignalDaoImp;
 import com.blueice.factory.BasicFactory;
 import com.blueice.utils.AnalyzeData;
+import com.blueice.utils.DaoUtils;
+import com.google.gson.Gson;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class TimeServerHandler extends IoHandlerAdapter {
 
+	
+	private static Gson gson = new Gson();
+	
 	/**
 	 * exceptionCaught 应该总是在handler 中定义，来处理一些异常情况，否则异常信息将无法捕捉。
 	 * exceptionCaught 方法简单地打印了错误的堆栈跟踪和关闭会话。对于大多数程序，这将是标准的做法，除非处理程序可以从异常状态中恢复。
@@ -32,28 +43,43 @@ public class TimeServerHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object message)
 			throws Exception {
 		
-		SignalDao dao = BasicFactory.getInstance(SignalDao.class);
-		
 		String str = message.toString();
+		
 		if (str.trim().equalsIgnoreCase("quit")) {
 			session.close(true);
 			return;
 		}
 
-		System.out.println("Message Reciver...");
-		
+
+//		SignalDao dao = BasicFactory.getInstance(SignalDao.class);
+		SignalDaoImp dao = new SignalDaoImp();
 		Signal signal = AnalyzeData.jsonToBean(str);
-		
 		if(signal!=null){
-			dao.addSignal(signal);
+//			dao.addSignal(signal);
+			saveDate(signal);
 			System.out.println("Save...");
 		}else{
 			System.out.println("Erro...");
 		}
 		
+
+//		session.write();//向客户端写入数据。
+		
 //		Date date = new Date();
 //		session.write(date.toString());//向客户端写入数据。
 		
+	}
+
+	private void saveDate(Signal signal) {
+		String sql = "INSERT INTO tb_signal VALUES(?,?)";
+		try {
+			ComboPooledDataSource source = new ComboPooledDataSource();
+			QueryRunner runner = new QueryRunner(source);
+			runner.update(sql,signal.getTemperature(),signal.getHumidity());
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

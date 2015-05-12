@@ -24,9 +24,9 @@
     -->
 
 	<property name="driverClass">com.mysql.jdbc.Driver</property>
-	<property name="jdbcUrl">jdbc:mysql://localhost/mydb</property>
+	<property name="jdbcUrl">jdbc:mysql://localhost/mydatabase</property>
 	<property name="user">admin</property>
-	<property name="password">gstaradmin</property>
+	<property name="password">123456</property>
 
   </default-config>
 
