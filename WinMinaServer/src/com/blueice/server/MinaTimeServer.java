@@ -59,7 +59,7 @@ public class MinaTimeServer {
         try {
 			InetSocketAddress inetSocketAddress = new InetSocketAddress(PORT);
 			acceptor.bind( inetSocketAddress );
-			System.out.println("Server started on port " + PORT);
+			System.out.println("HelloServer started on port " + PORT);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
