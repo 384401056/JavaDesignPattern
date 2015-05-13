@@ -1,0 +1,15 @@
+2015-05-13 14:27:06,103 [main] [com.blueice.log4j.Test.main(Test.java:13)] [DEBUG] - debug!!!
+2015-05-13 14:27:06,103 [main] [com.blueice.log4j.Test.main(Test.java:14)] [INFO] - info!!!
+2015-05-13 14:27:06,103 [main] [com.blueice.log4j.Test.main(Test.java:15)] [WARN] - warn!!!
+2015-05-13 14:27:06,103 [main] [com.blueice.log4j.Test.main(Test.java:16)] [ERROR] - error!!!
+2015-05-13 14:27:06,103 [main] [com.blueice.log4j.Test.main(Test.java:17)] [FATAL] - fatal!!!
+2015-05-13 14:30:55,187 [main] [com.blueice.log4j.Test.main(Test.java:13)] [DEBUG] - debug!!!
+2015-05-13 14:30:55,189 [main] [com.blueice.log4j.Test.main(Test.java:14)] [INFO] - info!!!
+2015-05-13 14:30:55,189 [main] [com.blueice.log4j.Test.main(Test.java:15)] [WARN] - warn!!!
+2015-05-13 14:30:55,189 [main] [com.blueice.log4j.Test.main(Test.java:16)] [ERROR] - error!!!
+2015-05-13 14:30:55,189 [main] [com.blueice.log4j.Test.main(Test.java:17)] [FATAL] - fatal!!!
+2015-05-13 14:31:01,064 [main] [com.blueice.log4j.Test.main(Test.java:13)] [DEBUG] - debug!!!
+2015-05-13 14:31:01,066 [main] [com.blueice.log4j.Test.main(Test.java:14)] [INFO] - info!!!
+2015-05-13 14:31:01,066 [main] [com.blueice.log4j.Test.main(Test.java:15)] [WARN] - warn!!!
+2015-05-13 14:31:01,066 [main] [com.blueice.log4j.Test.main(Test.java:16)] [ERROR] - error!!!
+2015-05-13 14:31:01,066 [main] [com.blueice.log4j.Test.main(Test.java:17)] [FATAL] - fatal!!!
