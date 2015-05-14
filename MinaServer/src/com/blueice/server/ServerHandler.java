@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
+
 import com.blueice.bean.Signal;
 import com.blueice.dao.SignalDao;
 import com.blueice.factory.BasicFactory;
@@ -11,13 +12,13 @@ import com.blueice.utils.AnalyzeData;
 import com.google.gson.Gson;
 
 
-public class TimeServerHandler extends IoHandlerAdapter {
+public class ServerHandler extends IoHandlerAdapter {
 
 	
 	private static Gson gson = new Gson();
 	private static SignalDao dao;
 	
-	private static Logger logger = Logger.getLogger(TimeServerHandler.class);
+	private static Logger logger = Logger.getLogger(ServerHandler.class);
 	/**
 	 * exceptionCaught 应该总是在handler 中定义，来处理一些异常情况，否则异常信息将无法捕捉。
 	 * exceptionCaught 方法简单地打印了错误的堆栈跟踪和关闭会话。对于大多数程序，这将是标准的做法，除非处理程序可以从异常状态中恢复。
@@ -25,6 +26,7 @@ public class TimeServerHandler extends IoHandlerAdapter {
 	@Override
 	public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
 		cause.printStackTrace();
+		logger.error(cause.getMessage());
 	}
 
 	/**
@@ -39,20 +41,35 @@ public class TimeServerHandler extends IoHandlerAdapter {
 		
 		dao = BasicFactory.getInstance(SignalDao.class);
 		String str = message.toString();
-
 		logger.debug("Rec:" + str);
 
-		Signal signal = AnalyzeData.jsonToBean(str);
-		if(signal!=null){
-			dao.addSignal(signal);
-			session.write("Rec OK\n");
-		}else{
-			logger.info("收到的数据为空..");
+		
+		String[] splitString = str.split("-");
+		
+		if("send".equals(splitString[0])){
+			
+			dao.addSignal(splitString[1]);
+			session.write("Saving OK");
+			
 		}
 		
-//		Date date = new Date();
-//		session.write(date.toString());//向客户端写入数据。
-//		logger.info(date.toString());
+		if("getall".equals(splitString[0])){
+			String res = gson.toJson(dao.findAllSignal());
+			session.write(res);
+		}
+		
+		if("delbyid".equals(splitString[0])){
+			int res = dao.delSignalById(splitString[1]);
+			switch (res) {
+			case 1:
+				session.write("delete accesse!");
+				break;
+			case 0:
+				session.write("delete error!");
+				break;
+			}
+		}
+
 	}
 
 

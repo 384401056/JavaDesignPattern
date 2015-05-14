@@ -3,6 +3,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 
 
+
 import org.apache.log4j.Logger;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
@@ -22,12 +23,12 @@ public class MyDecoder extends CumulativeProtocolDecoder  {
 	protected boolean doDecode(IoSession session, IoBuffer in,
 			ProtocolDecoderOutput out) throws Exception {
 		
-		if(in.limit()>=38){
+		if(in.limit()>=43){
 			
 			CharsetDecoder decoder = Charset.forName("utf-8").newDecoder();
 			String str = in.getString(decoder);
 			out.write(str);
-			
+			return true;
 		}
 		return false;
 	}

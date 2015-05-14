@@ -26,7 +26,7 @@ public class MyEncoder implements ProtocolEncoder{
 		
 		IoBuffer buf = IoBuffer.allocate(100).setAutoExpand(true);
 		CharsetEncoder ce = charset.newEncoder();
-        buf.putString((String)message,ce);  //将String转为IoBuffer。
+        buf.putString(message+"\n",ce);  //将String转为IoBuffer。
         buf.flip();
         out.write(buf);
 	}

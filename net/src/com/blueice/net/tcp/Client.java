@@ -23,8 +23,9 @@ public class Client {
 		signal.setTemperature(23.88);
 		signal.setHumidity(56.04);
 		
-		String str = gson.toJson(signal);
-		//{"temperature":23.88,"humidity":56.04}
+		String str = "getall-"+ Client.addEmptyString(43);
+//		String str = "send-"+gson.toJson(signal);
+		//send-{"temperature":23.88,"humidity":56.04}
 		try {
 			
 			Socket client = new Socket("127.0.0.1", 9123);
@@ -38,7 +39,6 @@ public class Client {
 			BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			String res = br.readLine();
 			System.out.println(res);
-			
 			bw.close();
 			
 		} catch (Exception e) {
@@ -48,4 +48,39 @@ public class Client {
 		
 	}
 	
+	/**
+	 * 加入空字符
+	 * @param num
+	 * @return
+	 */
+	private static String addEmptyString(int num){
+		
+		byte[] bytes = new byte[num];
+		StringBuffer sb = new StringBuffer();
+		for(int i=0;i<bytes.length;i++){
+			sb.append((Byte)bytes[i]);
+		}
+		
+		return sb.toString();
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
