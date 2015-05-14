@@ -1,8 +1,13 @@
 package com.blueice.net.tcp;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+
+
+
 
 
 import com.google.gson.Gson;
@@ -14,7 +19,6 @@ public class Client {
 	
 	public static void main(String[] args) {
 		
-		
 		Signal signal = new Signal();
 		signal.setTemperature(23.88);
 		signal.setHumidity(56.04);
@@ -25,13 +29,19 @@ public class Client {
 			
 			Socket client = new Socket("127.0.0.1", 9123);
 			BufferedWriter bw  = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+			
 			bw.write(str);
 			bw.newLine();//使用buferedWriter要加行结束符。
 			bw.flush();
+
+			//读取服务器的返回值。
+			BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			String res = br.readLine();
+			System.out.println(res);
+			
 			bw.close();
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

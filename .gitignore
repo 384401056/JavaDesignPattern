@@ -5,3 +5,4 @@
 /HelloJar/bin
 /MinaServer/bin
 /WinMinaServer/bin
+/MinaServer/Log/*.log
