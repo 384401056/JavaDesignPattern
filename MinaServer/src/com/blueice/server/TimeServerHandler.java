@@ -1,22 +1,21 @@
 package com.blueice.server;
 
-import java.sql.SQLException;
-import java.util.Date;
-
-import org.apache.commons.dbutils.QueryRunner;
 import org.apache.log4j.Logger;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
-
 import com.blueice.bean.Signal;
+import com.blueice.dao.SignalDao;
+import com.blueice.factory.BasicFactory;
+import com.blueice.utils.AnalyzeData;
 import com.google.gson.Gson;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 public class TimeServerHandler extends IoHandlerAdapter {
 
 	
 	private static Gson gson = new Gson();
+	private static SignalDao dao;
 	
 	private static Logger logger = Logger.getLogger(TimeServerHandler.class);
 	/**
@@ -38,41 +37,24 @@ public class TimeServerHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object message)
 			throws Exception {
 		
+		dao = BasicFactory.getInstance(SignalDao.class);
 		String str = message.toString();
-		
-		if (str.trim().equalsIgnoreCase("quit")) {
-			session.close(true);
-			return;
+
+		logger.debug("Rec:" + str);
+
+		Signal signal = AnalyzeData.jsonToBean(str);
+		if(signal!=null){
+			dao.addSignal(signal);
+			session.write("Rec OK\n");
+		}else{
+			logger.info("收到的数据为空..");
 		}
-
-//		logger.debug("Rec:" + str);
 		
-//		SignalDaoImp dao = new SignalDaoImp();
-//		Signal signal = AnalyzeData.jsonToBean(str);
-//		if(signal!=null){
-//			saveDate(signal);
-//			System.out.println("Save...");
-//		}else{
-//			System.out.println("Erro...");
-//		}
-
-		
-		Date date = new Date();
-		session.write(date.toString());//向客户端写入数据。
-		logger.info(date.toString());
+//		Date date = new Date();
+//		session.write(date.toString());//向客户端写入数据。
+//		logger.info(date.toString());
 	}
 
-	private void saveDate(Signal signal) {
-		String sql = "INSERT INTO tb_signal VALUES(?,?)";
-		try {
-			ComboPooledDataSource source = new ComboPooledDataSource();
-			QueryRunner runner = new QueryRunner(source);
-			runner.update(sql,signal.getTemperature(),signal.getHumidity());
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * 当连接空闲时触发此方法.

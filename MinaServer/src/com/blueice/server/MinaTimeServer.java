@@ -35,7 +35,8 @@ public class MinaTimeServer {
 
 		LoggingFilter logFilter = new LoggingFilter();
 		
-		ProtocolCodecFactory factory = new TextLineCodecFactory(Charset.forName( "UTF-8" ));
+		MyProtocalCodecFactory factory = new MyProtocalCodecFactory();
+//		ProtocolCodecFactory factory = new TextLineCodecFactory(Charset.forName( "UTF-8" ));
 		/**
 		 * (协议编解码过滤器).这个过滤器用来转换二进制或协议的专用数据到消息对象中.
 		 * 我们这里使用一个已经存在的TextLine工厂，因为我们这里只处理一些文字消息（你不需要再去写编解码部分）。

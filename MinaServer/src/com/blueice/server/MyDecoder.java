@@ -1,9 +1,12 @@
 package com.blueice.server;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+
 
 import org.apache.log4j.Logger;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
-import org.apache.mina.filter.codec.ProtocolDecoder;
+import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
 /**
@@ -11,29 +14,22 @@ import org.apache.mina.filter.codec.ProtocolDecoderOutput;
  * @author Gaoyanbin
  *
  */
-public class MyDecoder implements ProtocolDecoder {
+public class MyDecoder extends CumulativeProtocolDecoder  {
 
-	private static Logger logger = Logger.getLogger(MylEncoder.class);
-
-	
-	@Override
-	public void decode(IoSession session, IoBuffer in, ProtocolDecoderOutput out)
-			throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	private static Logger logger = Logger.getLogger(MyEncoder.class);
 
 	@Override
-	public void finishDecode(IoSession session, ProtocolDecoderOutput out)
-			throws Exception {
-		// TODO Auto-generated method stub
+	protected boolean doDecode(IoSession session, IoBuffer in,
+			ProtocolDecoderOutput out) throws Exception {
 		
-	}
-
-	@Override
-	public void dispose(IoSession session) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if(in.limit()>=38){
+			
+			CharsetDecoder decoder = Charset.forName("utf-8").newDecoder();
+			String str = in.getString(decoder);
+			out.write(str);
+			
+		}
+		return false;
 	}
 
 }
