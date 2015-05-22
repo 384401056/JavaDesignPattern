@@ -10,6 +10,9 @@ import org.apache.mina.filter.codec.ProtocolEncoder;
 import org.apache.mina.filter.codec.ProtocolEncoderAdapter;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 
+import com.blueice.ConstValue;
+import com.blueice.utils.DES;
+
 /**
  * 编码
  * 服务器端编码无需处理，直接将接收到的数据向下传递 
@@ -19,14 +22,18 @@ import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 public class MyEncoder implements ProtocolEncoder{
 	
 	private static Logger logger = Logger.getLogger(MyEncoder.class);
-	private static Charset charset = Charset.forName("UTF-8");
+	private static Charset charset = Charset.forName(ConstValue.ENCODING);
 	
 	@Override
 	public void encode(IoSession session, Object message,ProtocolEncoderOutput out) throws Exception {
-		
-		IoBuffer buf = IoBuffer.allocate(100).setAutoExpand(true);
+
+		IoBuffer buf = IoBuffer.allocate(1024).setAutoExpand(true);
 		CharsetEncoder ce = charset.newEncoder();
-        buf.putString(message+"\n",ce);  //将String转为IoBuffer。
+		
+		DES des = new DES();
+		String encondeMessage = des.authcode(String.valueOf(message), "ENCODE", ConstValue.DES_PASSWORD);
+		
+        buf.putString(encondeMessage+"\n",ce);  //将String转为IoBuffer。
         buf.flip();
         out.write(buf);
 	}

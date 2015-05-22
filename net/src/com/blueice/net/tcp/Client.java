@@ -6,10 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-
-
-
-
+import com.blueice.net.utils.DES;
 import com.google.gson.Gson;
 
 public class Client {
@@ -23,8 +20,8 @@ public class Client {
 		signal.setTemperature(23.88);
 		signal.setHumidity(56.04);
 		
-		String str = "getall-"+ Client.addEmptyString(43);
-//		String str = "send-"+gson.toJson(signal);
+//		String str = "getall-"+ Client.addEmptyString(43);
+		String str = "send-"+gson.toJson(signal);
 		//send-{"temperature":23.88,"humidity":56.04}
 		try {
 			
@@ -38,7 +35,8 @@ public class Client {
 			//读取服务器的返回值。
 			BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			String res = br.readLine();
-			System.out.println(res);
+			DES des = new DES();
+			System.out.println(des.authcode(res, "DECODE", "9b2648fcdfbad80f"));
 			bw.close();
 			
 		} catch (Exception e) {
