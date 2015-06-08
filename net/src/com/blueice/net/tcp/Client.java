@@ -17,11 +17,11 @@ public class Client {
 	public static void main(String[] args) {
 		
 		Signal signal = new Signal();
-		signal.setTemperature(23.88);
-		signal.setHumidity(56.04);
+		signal.setTemperature(100.88);
+		signal.setHumidity(500.04);
 		
-//		String str = "getall-"+ Client.addEmptyString(43);
-		String str = "send-"+gson.toJson(signal);
+		String str = "getall-"+ Client.addEmptyString(43);
+//		String str = "send-"+gson.toJson(signal);
 		//send-{"temperature":23.88,"humidity":56.04}
 		try {
 			
