@@ -1,0 +1,93 @@
+2015-05-21 11:05:15 [com.blueice.server.MinaServer] [INFO] - Server started on port 9123
+2015-05-21 11:05:24 [org.apache.mina.filter.logging.LoggingFilter] [DEBUG] - CREATED
+2015-05-21 11:05:24 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - OPENED
+2015-05-21 11:05:24 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - RECEIVED: HeapBuffer[pos=0 lim=45 cap=1024: 73 65 6E 64 2D 7B 22 74 65 6D 70 65 72 61 74 75...]
+2015-05-21 11:05:24 [org.apache.mina.filter.codec.ProtocolCodecFilter] [DEBUG] - Processing a MESSAGE_RECEIVED for session 1
+2015-05-21 11:05:24 [com.blueice.server.ServerHandler] [DEBUG] - Rec:send-{"temperature":23.88,"humidity":56.04}
+
+2015-05-21 11:05:24 [com.mchange.v2.log.MLog] [INFO] - MLog clients using log4j logging.
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.C3P0Registry] [INFO] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean] [DEBUG] - MBean: com.mchange.v2.c3p0:type=PooledDataSource[1hge0y799wb0gwnzgnolo|491a4f] registered.
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 1
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 2
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 3
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - com.mchange.v2.resourcepool.BasicResourcePool@1802282 config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] [INFO] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge0y799wb0gwnzgnolo|491a4f, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge0y799wb0gwnzgnolo|491a4f, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost/mydatabase, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - acquire test -- pool size: 0; target_pool_size: 3; desired target? 1
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - awaitAvailable(): [unknown]
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 0, unused: 0, excluded: 0]
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1a79117.acquireResource() returning. 
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1a79117.acquireResource() returning. 
+2015-05-21 11:05:25 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1a79117.acquireResource() returning. 
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 1, unused: 1, excluded: 0]
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@41529e)
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@41529e)
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 2
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@41529e)
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 1
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 0
+2015-05-21 11:05:25 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@1802282 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@41529e)
+2015-05-21 11:05:25 [com.blueice.dao.SignalDaoImp] [INFO] - Save to mysql..
+2015-05-21 11:05:25 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - SENT: Saving OK
+2015-05-21 11:06:36 [com.blueice.server.MinaServer] [INFO] - Server started on port 9123
+2015-05-21 11:06:40 [org.apache.mina.filter.logging.LoggingFilter] [DEBUG] - CREATED
+2015-05-21 11:06:40 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - OPENED
+2015-05-21 11:06:40 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - RECEIVED: HeapBuffer[pos=0 lim=45 cap=1024: 73 65 6E 64 2D 7B 22 74 65 6D 70 65 72 61 74 75...]
+2015-05-21 11:06:40 [org.apache.mina.filter.codec.ProtocolCodecFilter] [DEBUG] - Processing a MESSAGE_RECEIVED for session 1
+2015-05-21 11:06:40 [com.blueice.server.ServerHandler] [DEBUG] - Rec:send-{"temperature":23.88,"humidity":56.04}
+
+2015-05-21 11:06:40 [com.mchange.v2.log.MLog] [INFO] - MLog clients using log4j logging.
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.C3P0Registry] [INFO] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean] [DEBUG] - MBean: com.mchange.v2.c3p0:type=PooledDataSource[1hge0y799wb235lpxrzue|1c5cdac] registered.
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 1
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 2
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 3
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] [INFO] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge0y799wb235lpxrzue|1c5cdac, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge0y799wb235lpxrzue|1c5cdac, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost/mydatabase, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - acquire test -- pool size: 0; target_pool_size: 3; desired target? 1
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - awaitAvailable(): [unknown]
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 0, unused: 0, excluded: 0]
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@b1abcd.acquireResource() returning. 
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@b1abcd.acquireResource() returning. 
+2015-05-21 11:06:40 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@b1abcd.acquireResource() returning. 
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 1, unused: 1, excluded: 0]
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@16dc3c9)
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@16dc3c9)
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 2
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 1
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@16dc3c9)
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 0
+2015-05-21 11:06:40 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@bffcc0 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@16dc3c9)
+2015-05-21 11:06:40 [com.blueice.dao.SignalDaoImp] [INFO] - Save to mysql..
+2015-05-21 11:06:40 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - SENT: Saving OK
+2015-05-21 11:14:25 [com.blueice.server.MinaServer] [INFO] - Server started on port 9123
+2015-05-21 11:14:29 [org.apache.mina.filter.logging.LoggingFilter] [DEBUG] - CREATED
+2015-05-21 11:14:29 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - OPENED
+2015-05-21 11:14:29 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - RECEIVED: HeapBuffer[pos=0 lim=45 cap=1024: 73 65 6E 64 2D 7B 22 74 65 6D 70 65 72 61 74 75...]
+2015-05-21 11:14:29 [org.apache.mina.filter.codec.ProtocolCodecFilter] [DEBUG] - Processing a MESSAGE_RECEIVED for session 1
+2015-05-21 11:14:29 [com.blueice.server.ServerHandler] [DEBUG] - Rec:send-{"temperature":23.88,"humidity":56.04}
+
+2015-05-21 11:14:29 [com.mchange.v2.log.MLog] [INFO] - MLog clients using log4j logging.
+2015-05-21 11:14:29 [com.mchange.v2.c3p0.C3P0Registry] [INFO] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-05-21 11:14:29 [com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean] [DEBUG] - MBean: com.mchange.v2.c3p0:type=PooledDataSource[1hge0y799wbc5atyztyfd|1d510be] registered.
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 1
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 2
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - incremented pending_acquires: 3
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - com.mchange.v2.resourcepool.BasicResourcePool@296cad config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2015-05-21 11:14:29 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] [INFO] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge0y799wbc5atyztyfd|1d510be, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge0y799wbc5atyztyfd|1d510be, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost/mydatabase, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - acquire test -- pool size: 0; target_pool_size: 3; desired target? 1
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - awaitAvailable(): [unknown]
+2015-05-21 11:14:29 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 0, unused: 0, excluded: 0]
+2015-05-21 11:14:30 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@162a9bf.acquireResource() returning. 
+2015-05-21 11:14:30 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@162a9bf.acquireResource() returning. 
+2015-05-21 11:14:30 [com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool] [DEBUG] - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@162a9bf.acquireResource() returning. 
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 1, unused: 1, excluded: 0]
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 2
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@dea091)
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@dea091)
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 1
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@dea091)
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - decremented pending_acquires: 0
+2015-05-21 11:14:30 [com.mchange.v2.resourcepool.BasicResourcePool] [DEBUG] - trace com.mchange.v2.resourcepool.BasicResourcePool@296cad [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@dea091)
+2015-05-21 11:14:30 [com.blueice.dao.SignalDaoImp] [INFO] - Save to mysql..
+2015-05-21 11:14:30 [org.apache.mina.filter.logging.LoggingFilter] [INFO] - SENT: Saving OK
