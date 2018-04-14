@@ -7,3 +7,5 @@
 /WinMinaServer/bin
 /MinaServer/Log/*.log
 /wasp
+/BigData/02_JavaQueue/.idea
+/BigData/02_JavaQueue/out
