@@ -12,3 +12,6 @@
 /BigData/01_ThreadPool/.idea
 /BigData/03_activemq/.idea
 /BigData/04_反射/.idea
+/BigData/05_动态代理/.idea
+.idea
+/BigData/05_动态代理/out
