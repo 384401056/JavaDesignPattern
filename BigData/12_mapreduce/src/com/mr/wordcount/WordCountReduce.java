@@ -14,7 +14,7 @@ import java.io.IOException;
 public class WordCountReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
 
     /**
-     *
+     * 每一组相同的<k,v>就会调用一次reduce方法
      * @param key mapper程序输出的key,在这里是一组相同的单词的key 如：<hello,1><hello,1><hello, 1>, 这里的key就是hello
      * @param values  mapper程序输出的value的可迭代对象 如：<hello,1><hello,1><hello, 1>，这里的values就是[1,1,1]
      * @param context
