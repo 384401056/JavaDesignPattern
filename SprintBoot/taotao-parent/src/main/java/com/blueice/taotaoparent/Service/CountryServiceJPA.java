@@ -18,7 +18,5 @@ public class CountryServiceJPA {
         return countryJPADao.findAll();
     }
 
-    public Optional<Country> getCounty(int id) {
-        return countryJPADao.findById(id);
-    }
+    public Country getCounty(int id) { return countryJPADao.findById(id).get();}
 }
