@@ -1,21 +1,31 @@
-package com.proxy;
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-/**
- * 处理器对象。
- * 1.通过invoke方法，实现对代理角色的真实访问。
- * 2.通过Proxy方法生成代理类对象时都要指定对应的处理器对象。
- */
-public class StarHandler implements InvocationHandler {
+public class ProxyFactory implements MethodInterceptor {
 
-    //真实对象的引用。
-    private RealIStar realStar;
+    //目标对象
+    private Object realStar;
 
-    public StarHandler(IStar realIStar) {
-        super();
-        this.realStar = (RealIStar) realIStar;
+    public ProxyFactory(Object realStar) {
+        this.realStar = realStar;
+    }
+
+    // 给目标对象创建一个代理对象
+    public Object getProxyInstance(){
+        //1.工具类
+        Enhancer en = new Enhancer();
+        //2.设置父类
+        en.setSuperclass(realStar.getClass());
+
+        //3.设置回调函数,ProxyFactory
+        en.setCallback(this);
+
+        //4.创建子类(代理对象)
+        return en.create();
+
     }
 
     /**
@@ -23,12 +33,8 @@ public class StarHandler implements InvocationHandler {
      * 第二个参数是：正在调用的方法
      * 第三个参数时：方法参数。
      */
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args)
-            throws Throwable {
-
+    public Object intercept(Object o, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         Object obj = null;
-
 
         if (method.getName().equals("confer")) {
             obj = method.invoke(realStar, args);//如果方法有返回值可以在这里接收，最后返回
@@ -51,9 +57,6 @@ public class StarHandler implements InvocationHandler {
             System.out.println("代理人收尾款");
         }
 
-
         return obj;
     }
-
-
 }

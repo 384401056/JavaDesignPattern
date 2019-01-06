@@ -14,13 +14,9 @@ public class Clent {
 		
 		//代理对象
 		Star proxyStar = new ProxyStar(realStar);
-		
-		proxyStar.confer();
-		proxyStar.signContract();
-		proxyStar.bookTicket();
+
 		proxyStar.sing();
-		proxyStar.collectMoney();
-		
+
 		
 	}
 }

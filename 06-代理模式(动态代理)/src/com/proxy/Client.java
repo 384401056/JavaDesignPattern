@@ -10,21 +10,22 @@ public class Client {
 
 	public static void main(String[] args) {
 
-		Star realStar = new RealStar();// 真实对象
-		StarHandler handler = new StarHandler(realStar);
+		IStar realIStar = new RealIStar();// 真实对象
+		StarHandler handler = new StarHandler(realIStar);
 
-		//生成代理类对象。
-		Star proxy = (Star) Proxy.newProxyInstance(
-				ClassLoader.getSystemClassLoader(), new Class[] { Star.class },handler);
+		IStar proxy = (IStar) Proxy.newProxyInstance(
+				realIStar.getClass().getClassLoader(),
+				realIStar.getClass().getInterfaces(),
+				handler);
 
 		//代理类调用实现的方法。
 		//每次调用方法都会进入StarHandler中的invoke方法中执行。
 		//所以在处理器的invoke方法中可进行统一的流程控制。
-		proxy.confer();
-//		proxy.signContract();
-//		proxy.bookTicket();
-		proxy.sing();
-//		proxy.collectMoney();
+//		Object obj = proxy.confer();
+//		System.out.println("obj = :"+ obj);
+//		proxy.sing();
+
+		proxy.talk("Ha Ha Ha");
 		
 	}
 

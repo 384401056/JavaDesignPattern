@@ -9,31 +9,30 @@ public class ProxyStar implements Star {
 		this.realStar = realStar;
 	}
 
-	@Override
 	public void confer() {
 		System.out.println("ProxyStar.confer()");
 
 	}
 
-	@Override
 	public void signContract() {
 		System.out.println("ProxyStar.signContract()");
 	}
 
-	@Override
 	public void bookTicket() {
 		System.out.println("ProxyStar.bookTicket()");
 	}
 
-	@Override
+
 	public void sing() {
+		this.confer();
+		this.signContract();
+		this.bookTicket();
 		realStar.sing();
+		this.collectMoney();
 	}
 
-	@Override
 	public void collectMoney() {
 		System.out.println("ProxyStar.collectMoney()");
-
 	}
 
 }
